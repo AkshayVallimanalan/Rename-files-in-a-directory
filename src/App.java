@@ -4,29 +4,23 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
 
-        String absolutepath = "E:\\Akshay\\CAD\\Spotify\\nirvana";
+        String absolutepath = "E:\\Akshay\\CAD\\Spotify\\nirvana"; //Enter your folder location
         File dir = new File(absolutepath);
         File[] filesinfolder = dir.listFiles();
 
         for(File file : filesinfolder){
             String name = file.getName();
+            //Change the if statements according to your requirements
+            //In this case the file is renamed from 
+            //"[SPOTIFY-DOWNLOADER.COM] Heart-Shaped Box" to "Heart-Shaped Box" and so.
             if(name.charAt(0) == '['){
-                System.out.println(name);
                 String newname = name.substring(25, name.length());
-                System.out.println(newname);
                 String newPath = absolutepath + "\\" + newname;
                 file.renameTo(new File(newPath));
                 System.out.println(name + " changed to " + newname);
             }
             
         }
-
-        // String[] filenames = {"[SPOTIFY-DOWNLOADER.COM] Downer", "[SPOTIFY-DOWNLOADER.COM] Aneurysm", "[SPOTIFY-DOWNLOADER.COM] Been A Son - BBC Mark Goodier Session"};
-        
-        // for(int i=0; i<filenames.length; i++){
-        //     String name = filenames[i].substring(25, filenames[i].length());
-        //     System.out.println("File name is :" + name);
-        // }
     }
 }
 
